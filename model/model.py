@@ -7,7 +7,7 @@ import os
 from PIL import Image
 import io
 
-model = load_model('model/best_model.h5')
+model = load_model('model/final_best_model.keras')
 
 
 
@@ -26,7 +26,7 @@ def model_predict(file):
     class_index = np.argmax(pred, axis=1)[0]
     confidence = float(np.max(pred))
     
-    return jsonify({
+    return {
             'classe_predita': class_indices[class_index],
             'confianca': round(confidence, 4)
-        })
+        }

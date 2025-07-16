@@ -3,6 +3,7 @@ import numpy as np
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from model import model
+import os
 
 app = Flask(__name__)
 CORS(app) 
@@ -19,10 +20,17 @@ def predict():
 
     file = request.files['file']
 
+    file.save('./static/temp.png')
+
     if file.filename == '':
         return jsonify({'erro': 'Nome de arquivo vazio'}), 400
 
-    return model.model_predict(file)
+    with open('./static/temp.png', "rb") as f:
+        valor = model.model_predict(f)
+
+    valor['img_path'] = './static/temp.png'
+
+    return render_template("./home.html", valor=valor)
 
 
 if __name__ == '__main__':
