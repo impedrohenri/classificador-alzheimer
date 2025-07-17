@@ -1,6 +1,6 @@
 # Classificação de Alzheimer
 
-Projeto simples de classificação de imagens de ressonância magnética para detecção de Alzheimer.
+Projeto de classificação de imagens de ressonância magnética para detecção do estágio do Alzheimer.
 
 ## Tecnologias
 - TensorFlow
@@ -12,7 +12,7 @@ Projeto simples de classificação de imagens de ressonância magnética para de
 1. Clone o repositório  
 2. Instale as dependências:  
    ```bash
-   pip install -r requerimento.txt
+   pip install -r requeriments.txt
 
 3. Execute o app:
 
